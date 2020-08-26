@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
 MAINTAINER Matthias Mursch<matthias.mursch@gmx.de>
 
@@ -11,6 +11,10 @@ RUN apt update \
     vim \
     git \
     git-gui \
+    make=4.2.1-1.2 \
+    python3=3.8.2-0ubuntu2 \
+    gcc-avr=1:5.4.0+Atmel3.6.1-2build1 \
+    avr-libc=1:2.0.0+Atmel3.6.1-2 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

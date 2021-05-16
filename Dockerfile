@@ -15,18 +15,20 @@ RUN apt update \
     python3=3.8.2-0ubuntu2 \
     gcc-avr=1:5.4.0+Atmel3.6.1-2build1 \
     avr-libc=1:2.0.0+Atmel3.6.1-2 \
+    avrdude \
+    bc bison flex libssl-dev libc6-dev libncurses5-dev \
+    crossbuild-essential-armhf \
+    crossbuild-essential-arm64 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN sed -i 's/docker:x999/docker:x:998:/g' /etc/group \
+  && useradd -u 1000 -G users,sudo,dialout -ms /bin/bash docker \
+  && echo "docker:docker" | chpasswd
 
-#FROM microsoft/windowsservercore:latest
-# Create Windows user in the container
-#RUN net user /add docker
-# Set it for subsequent commands
-#USER docker:docker
+RUN USER=docker && \
+    GROUP=docker
 
-
-RUN useradd -ms /bin/bash -u 1000 docker 
 USER docker:docker
 WORKDIR /home/docker
 ENV DISPLAY :0

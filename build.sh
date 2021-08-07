@@ -1,1 +1,1 @@
-docker build . --file Dockerfile --tag dev_mm:latest
+docker build . --file Dockerfile --tag ghcr.io/murschm/murschm/docker/dev-mm:latest

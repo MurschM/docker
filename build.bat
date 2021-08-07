@@ -1,1 +1,1 @@
-docker build -t dev_mm .
+docker build -t ghcr.io/murschm/murschm/docker/dev-mm:latest .

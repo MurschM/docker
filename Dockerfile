@@ -14,7 +14,7 @@ RUN apt update \
     git \
     git-gui \
     make=4.2.1-1.2 \
-    cmake=3.16.3 \
+    cmake=3.16.3-1ubuntu1 \
     python3=3.8.2-0ubuntu2 \
     python3-pip \
     python \
